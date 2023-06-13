@@ -6,11 +6,12 @@
 
 1. Клонируйте репозиторий:
 
-   ```shell
+   ```
    git clone https://github.com/your-username/your-repo.git
 
 2. Установите зависимости, выполнив следующую команду:
 
+``
 pip install -r requirements.txt
 
 3. Вставьте токен вашего бота в файл main.py в переменную token.
@@ -19,6 +20,7 @@ pip install -r requirements.txt
 
 1. Запустите бота, выполнив следующую команду:
 
+``
 python main.py
 
 2. Откройте чат с вашим ботом в Telegram.

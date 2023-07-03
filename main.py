@@ -1,4 +1,5 @@
 import logging
+import pytz
 from datetime import datetime
 from telegram import Update, ForceReply
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
@@ -9,6 +10,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
+YOUR_TIMEZONE = 'Asia/Yekaterinburg'
+timezone = pytz.timezone(YOUR_TIMEZONE)
 
 # Обработчик команды /start
 def start(update: Update, context: CallbackContext) -> None:
@@ -104,7 +107,7 @@ def echo(update: Update, context: CallbackContext) -> None:
     """Записывает сообщение пользователя в файл с датой и временем"""
     chat_id = update.effective_chat.id
     message = update.message.text
-    timestamp = datetime.now().strftime("%d.%m.%Y %H:%M")
+    timestamp = datetime.now(timezone).strftime("%d.%m.%Y %H:%M")
     note = f"{timestamp} {message}\n"
 
     # Имя файла для пользователя
